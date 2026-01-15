@@ -21,7 +21,11 @@ st.markdown("""
     /* 2. Base Theme Application */
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
-        color: #e0e0e0; 
+        color: #ffffff; 
+    }
+    
+    .stMarkdown, .stMarkdown p {
+        color: #ffffff !important;
     }
     
     /* 3. Hide Streamlit Branding */
@@ -211,16 +215,10 @@ with chat_container:
     for message in current_history:
         if message.startswith("User: "):
             with st.chat_message("user"):
-                st.markdown(
-                    f"<div style='color: #a6accd;'>{message.replace('User: ', '', 1)}</div>", 
-                    unsafe_allow_html=True
-                )
+                st.markdown(message.replace("User: ", "", 1))
         elif message.startswith("Bot: "):
-            with st.chat_message("assistant"):
-                st.markdown(
-                    f"<div style='color: #a6accd;'>{message.replace('Bot: ', '', 1)}</div>", 
-                    unsafe_allow_html=True
-                )
+            with st.chat_message("assistant", avatar="https://img.icons8.com/color/48/android-os.png"):
+                st.markdown(message.replace("Bot: ", "", 1))
 
 # --- INPUT AREA ---
 if prompt := st.chat_input("Type your message here..."):
@@ -229,7 +227,7 @@ if prompt := st.chat_input("Type your message here..."):
     st.session_state.all_chats[st.session_state.current_chat_id].append(user_msg_fmt)
     
     with st.chat_message("user"):
-        st.markdown(f"<div style='color: #a6accd;'>{prompt}</div>", unsafe_allow_html=True)
+        st.markdown(prompt)
 
     # 2. Call API
     try:
@@ -250,8 +248,8 @@ if prompt := st.chat_input("Type your message here..."):
         bot_msg_fmt = f"Bot: {ai_reply_text}"
         st.session_state.all_chats[st.session_state.current_chat_id].append(bot_msg_fmt)
         
-        with st.chat_message("assistant"):
-            st.markdown(f"<div style='color: #a6accd;'>{ai_reply_text}</div>", unsafe_allow_html=True)
+        with st.chat_message("assistant", avatar="https://img.icons8.com/color/48/android-os.png"):
+            st.markdown(ai_reply_text)
 
         st.rerun()
 
