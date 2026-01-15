@@ -38,7 +38,7 @@ Ngrok is the magic tool that lets your local computer talk to the Google Colab s
 
 ### Phase 2: Setting up the Backend (Google Colab)
 
-1.  **Open the Notebook:** Upload the `ChatBotCC.ipynb` file to your Google Drive or open it directly in Google Colab.
+1.  **Open the Notebook:** Upload the `LLM_server.ipynb` file to your Google Drive or open it directly in Google Colab.
 
 2.  **Select the Correct Runtime:**
     *   Go to `Runtime` > `Change runtime type`.
@@ -56,7 +56,7 @@ Ngrok is the magic tool that lets your local computer talk to the Google Colab s
 
 5.  **Run the Server:** Run the Step 6 cell (and previously the Setup/Install cell Step 1).
 6.  **Get the URL:** Once the server cell is running, look at the output. You will see a URL that looks like:
-    `Make sure to copy the public URL: https://xxxx-xx-xx-xx.ngrok-free.app`
+    `Make sure to copy the public URL: https://YOUR-NGROK-URL-HERE.ngrok-free.app/chat`
     **Copy this URL.** This is your API Link.
 
 ### Phase 3: Setting up the Frontend (Local Computer)

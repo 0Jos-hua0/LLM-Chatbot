@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # --- CONFIGURATION ---
-API_URL = "https://forgivingly-ungloomy-joesph.ngrok-free.dev/chat"
+API_URL = "https://YOUR-NGROK-URL-HERE.ngrok-free.app/chat"
 
 # --- PAGE CONFIG ---
 st.set_page_config(
